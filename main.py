@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pydicom
 import sys
 
+
 def main():
     def func1():
         label.setText("clicou no botão")
@@ -19,6 +20,7 @@ def main():
         filename = (f"./HCFMRPCOVID_19_&_LID (v1)/1-Normal/normal-dcm-anonymized/{valor_lido}.dcm")
         ds = pydicom.dcmread(filename)
         plt.imshow(ds.pixel_array, cmap=plt.cm.bone)
+        
         # plt.colorbar()
         plt.show()
 
