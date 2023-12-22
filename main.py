@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import *
 import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
 import pydicom
 import sys
 
@@ -17,8 +18,10 @@ def main():
         label.adjustSize()
     def func4():
         valor_lido = le.text()
-        filename = (f"./HCFMRPCOVID_19_&_LID (v1)/1-Normal/normal-dcm-anonymized/{valor_lido}.dcm")
+        filename = (f"./normal-dcm-anonymized/{valor_lido}.dcm")
         ds = pydicom.dcmread(filename)
+        rect = Rectangle((250, 1250), 200, 100, fill=False)
+        plt.gca().add_patch(rect)
         plt.imshow(ds.pixel_array, cmap=plt.cm.bone)
         
         # plt.colorbar()
