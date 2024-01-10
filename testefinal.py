@@ -75,7 +75,7 @@ class MainWindow(QMainWindow):
         self.pen = QPen()
     
         self.pen.setWidth(2)
-        self.pen.setColor(QColor("red"))
+        self.pen.setColor(QColor("black"))
         self.pen.setCapStyle(Qt.PenCapStyle.RoundCap)
 
         self.label.setPixmap(self.canvas)
@@ -139,6 +139,9 @@ class MainWindow(QMainWindow):
         
         painter.drawText(position.x(), position.y()-25, self.lee.text())
         painter.end()
+
+        self.lee.setText(None)
+
         self.previousPoint = position
         self.label.setPixmap(self.canvas)
 
